@@ -11,8 +11,14 @@
             <div class="p-4">
                 <h1>Transactions</h1>
             </div>
+
+            <div class="block">
+                <x-jet-label value="{{ __('Search') }}" />
+                <x-jet-input wire:change="searchTransaction" class="block w-full" type="text" wire:model="search_transaction" />
+            </div>
+
             <div class="p-4">
-                <x-jet-button wire:click="$toggle('showHistoryModal')" wire:loading.attr="disabled" style="background:rgb(43, 128, 0)">
+                <x-jet-button wire:click="$toggle('showHistoryModal')" wire:loading.attr="disabled">
                     Add New
                 </x-jet-button>
             </div>
@@ -148,31 +154,15 @@
                     {{ __('Close') }}
                 </x-jet-secondary-button>
 
-                <x-jet-button class="ml-8" wire:click="createNewTransaction" wire:loading.attr="disabled" style="background:rgb(43, 128, 0)">
+                <x-jet-button class="ml-8" wire:click="createNewTransaction" wire:loading.attr="disabled">
                     {{ __('Save') }}
                 </x-jet-button>
             </x-slot>
         </x-jet-dialog-modal>
 
         <div class="flex flex-col md:grid grid-cols-12 text-gray-50">
-            @foreach ($asset->transactions as $transaction)
-                <div class="flex md:contents">
-                    <div class="col-start-2 col-end-4 mr-10 md:mx-auto relative">
-                        <div class="h-full w-6 flex items-center justify-center">
-                            <div class="h-full w-1 bg-gray-300 pointer-events-none"></div>
-                        </div>
-                        <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-gray-300 shadow text-center">
-                            <i class="fas fa-exclamation-circle text-gray-400"></i>
-                        </div>
-                    </div>
-                    <div class="bg-white col-start-4 col-end-12 p-4 rounded-xl my-4 mr-auto shadow-md w-full">
-                        <h3 class="font-semibold text-lg mb-1 text-gray-400">{{$transaction->created_at->format('d-m-Y h:i A')}}</h3>
-                        <p class="leading-tight text-justify text-black">{{$transaction->employee->FullName}}</p>
-
-                        <p class="leading-tight text-justify text-gray-400"><span class="font-bold">Notes: </span>{{$transaction->notes}}</p>
-                        <p class="leading-tight text-justify text-gray-500"><span class="font-bold">Ticket: </span>{{$transaction->ticket}}</p>
-                    </div>
-                </div>
+            @foreach ($transactions as $transaction)
+                @livewire('asset.single-transaction', ['transaction' => $transaction])
             @endforeach
         </div>
 

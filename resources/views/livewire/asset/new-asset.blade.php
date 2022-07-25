@@ -2,7 +2,7 @@
     <form wire:submit.prevent="createNewAsset">
         <div>
             @if (session()->has('message'))
-                <div class="bg-green-700 p-4 text-white">
+                <div class="bg-green-500 p-4 text-white">
                     {{ session('message') }}
                 </div>
             @endif
@@ -10,9 +10,9 @@
 
         <div class="block">
             <x-jet-label value="{{ __('Asset Id') }}" />
-            <x-jet-input class="block w-full" type="text" wire:model="assetId" />
+            <x-jet-input class="block w-full" type="text" wire:model="asset_id" />
 
-            @error('assetId')
+            @error('asset_id')
                 <div class="text-sm text-red-500" role="alert">
                     {{ $message }}
                 </div>
@@ -89,11 +89,11 @@
 
         <div class="block mt-5">
             @if ($asset)
-                <x-jet-button wire:click="createNewAsset" wire:loading.attr="disabled" style="background:rgb(43, 128, 0)">
+                <x-jet-button wire:click="createNewAsset" wire:loading.attr="disabled">
                     {{ __('Update') }}
                 </x-jet-button>
             @else
-                <x-jet-button wire:click="createNewAsset" style="background:rgb(43, 128, 0)">{{ __('Save') }}</x-jet-button>
+                <x-jet-button wire:click="createNewAsset">{{ __('Save') }}</x-jet-button>
             @endif
         </div>
     </form>

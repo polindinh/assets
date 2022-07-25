@@ -1,3 +1,4 @@
+
     <tr>
         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
             <a href="{{ route('asstes.show',$asset->id)}}" class="bg-brown-500 text-blue-500 hover:text-blue-700">
@@ -27,12 +28,12 @@
         </td>
         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
             <a href="{{ route('asstes.show',$asset->id)}}" class="bg-brown-500 text-blue-500 hover:text-blue-700">
-                View
+                view
             </a>
             <a  class="bg-brown-500 text-blue-500 hover:text-blue-700 ml-6" href="{{route('asstes.edit',$asset->id)}}">
                 Edit
             </a>
-            <x-jet-danger-button class="bg-red-500 mt-1" wire:click="$toggle('confirmDeleteAsset')" wire:loading.attr="disabled">
+            <x-jet-danger-button class="bg-red-500 mt-2" wire:click="$toggle('confirmDeleteAsset')" wire:loading.attr="disabled">
                 Delete
             </x-jet-danger-button>
 

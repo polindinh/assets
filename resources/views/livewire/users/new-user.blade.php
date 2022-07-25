@@ -49,7 +49,7 @@
             </form>
         </x-slot>
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="createNewUser()"  style="background:rgb(43, 128, 0); color:white;">
+            <x-jet-secondary-button wire:click="createNewUser()">
                 {{ __('Create') }}
             </x-jet-secondary-button>
         </x-slot>

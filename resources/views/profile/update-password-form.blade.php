@@ -28,11 +28,11 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved" style="background:rgb(43, 128, 0)">
+        <x-jet-action-message class="mr-3" on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-        <x-jet-button style="background:rgb(43, 128, 0)">
+        <x-jet-button>
             {{ __('Save') }}
         </x-jet-button>
     </x-slot>

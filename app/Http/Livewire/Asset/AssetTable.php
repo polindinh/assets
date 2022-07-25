@@ -20,7 +20,12 @@ class AssetTable extends Component
         $q= Asset::query();
 
         if($this->search!=''){
-            $q->where('asset_id','like','%'.$this->search.'%');
+            $q->where(function($query){
+                $query->where('asset_id','like','%'.$this->search.'%')
+                    ->orWhere('notes','like','%'.$this->search.'%');
+            })->with(['transactions' => function($query) {
+                $query->where('employee_id', 'like', '%'.$this->search.'%');
+            }])->get();
         }
 
         $assets = $q->paginate(10);

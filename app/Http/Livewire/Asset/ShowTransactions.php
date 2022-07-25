@@ -13,8 +13,11 @@ class ShowTransactions extends Component
     protected $listeners = [
         'employeeSelected' => 'setEmployee',
         'transactionCreated' => '$refresh',
+        'transactionDeleted' => '$refresh',
         'serviceLocationSelected' => 'setLocation',
     ];
+
+    public $search_transaction;
 
     public function setEmployee($empId){
         $this->employee = $empId;
@@ -110,10 +113,26 @@ class ShowTransactions extends Component
         $this->type = null;
     }
 
+    public function searchTransaction(){
+
+    }
+
     public function render()
     {
+        $tq = Transaction::where('asset_id',$this->asset->id);
+
+        if(isset($this->search_transaction)&& $this->search_transaction!=null){
+            $tq->where(function($query) {
+                $query->where('notes', 'like', '%' . $this->search_transaction . '%')
+                    ->orWhere('ticket', 'like', '%' . $this->search_transaction . '%')
+                    ->orWhere('type', 'like', '%' . $this->search_transaction . '%');
+            });
+        }
+
+        $transactions=$tq->orderBy('id','desc')->get();
         return view('livewire.asset.show-transactions', [
             'asset' => $this->asset,
+            'transactions' => $transactions,
         ]);
     }
 }

@@ -3,7 +3,7 @@
         <div class="block flex justify-between">
             <h2 class="text-2xl font-semibold leading-tight">All Users</h2>
 
-            <x-jet-button wire:click="createUserModal()" class="ml-4" style="background:rgb(43, 128, 0); padding-top:0;padding-bottom:0;height:40px;">
+            <x-jet-button wire:click="createUserModal()" class="ml-4">
                 Create User
             </x-jet-button>
 

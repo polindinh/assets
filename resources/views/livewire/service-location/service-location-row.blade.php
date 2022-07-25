@@ -20,8 +20,8 @@
                 Edit
             </x-jet-secondary-button>
                 <x-jet-dialog-modal wire:model="updateServiceModal">
-                    <x-slot name="title" style="background:rgb(43, 128, 0)">
-                        {{ __('Update Service Location') }}
+                    <x-slot name="title">
+                        {{ __('Create Service Location') }}
                     </x-slot>
 
                     <x-slot name="content">
@@ -53,7 +53,7 @@
                             {{ __('Cancel') }}
                         </x-jet-secondary-button>
 
-                        <x-jet-button wire:click="updateServiceLocation" class="ml-2 bg-blue-500" style="background:rgb(43, 128, 0)">
+                        <x-jet-button wire:click="updateServiceLocation" class="ml-2 bg-blue-500">
                             {{ __('Update') }}
                         </x-jet-button>
                     </x-slot>

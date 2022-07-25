@@ -8,6 +8,15 @@
             <form submit.prevent="createNewHardware">
 
                 <div class="block">
+                    <x-jet-label value="{{ __('ID') }}" />
+                    <x-jet-input class="block w-full" type="text" wire:model="employee_id" />
+                    @error('employee_id')
+                        <div class="text-sm text-red-500" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="block">
                     <x-jet-label value="{{ __('First Name') }}" />
                     <x-jet-input class="block w-full" type="text" wire:model="first_name" />
                     @error('first_name')
@@ -42,10 +51,10 @@
             </form>
         </x-slot>
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="createNewEmployee()" style="background:rgb(43, 128, 0); color:white;">
+            <x-jet-secondary-button wire:click="createNewEmployee()">
                 {{ __('Create') }}
             </x-jet-secondary-button>
-            {{-- <x-jet-button wire:click="createNewHardware" class="ml-2" style="background:rgb(43, 128, 0): color:white;">
+            {{-- <x-jet-button wire:click="createNewHardware" class="ml-2">
                 {{ __('Create') }}
             </x-jet-button> --}}
         </x-slot>

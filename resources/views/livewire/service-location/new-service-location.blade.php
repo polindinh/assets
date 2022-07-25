@@ -2,13 +2,13 @@
     <div>
         <x-jet-button class="mr-4"
     wire:click="toggleModal()"
-    style="background:rgb(43, 128, 0)">
+    >
         {{ __('Create Service Location') }}</x-jet-button>
     </div>
 
     <div>
         <x-jet-dialog-modal wire:model="newServiceLocationModal">
-            <x-slot name="title" style="background:rgb(43, 128, 0)">
+            <x-slot name="title">
                 {{ __('Create Service Location') }}
             </x-slot>
 
@@ -41,7 +41,7 @@
                     {{ __('Cancel') }}
                 </x-jet-secondary-button>
 
-                <x-jet-button wire:click="createServiceLocation" class="ml-2"  style="background:rgb(43, 128, 0)">
+                <x-jet-button wire:click="createServiceLocation" class="ml-2">
                     {{ __('Create') }}
                 </x-jet-button>
             </x-slot>

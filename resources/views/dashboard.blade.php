@@ -1,9 +1,9 @@
 <x-app-layout>
-{{-- <x-slot name="header">
+    <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
-    </x-slot> --}}
+    </x-slot>
 
     <div class="p-10 grid grid-flow-col auto-cols-max gap-x-4 justify-center">
         <!--Card 1-->

@@ -19,7 +19,7 @@
             </div>
 
             <div class="flex justify-end mt-4">
-                <x-jet-button class="ml-4" style="background:rgb(43, 128, 0)">
+                <x-jet-button class="ml-4">
                     {{ __('Confirm') }}
                 </x-jet-button>
             </div>

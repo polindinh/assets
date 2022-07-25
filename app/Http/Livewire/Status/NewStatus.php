@@ -7,16 +7,22 @@ use Livewire\Component;
 
 class NewStatus extends Component
 {
-    public $newStatusModal=false;
+    public $newStatusModal = false;
 
     public $name;
+
+    public $selected;
 
     protected $listeners = [
         'openNewStatusModal' => 'toggleModal',
     ];
 
-    public function toggleModal()
+    public function toggleModal($id)
     {
+        if ($id) {
+            $this->selected = $id;
+            $this->name = Status::find($id)->name;
+        }
         $this->newStatusModal = !$this->newStatusModal;
     }
 
@@ -26,15 +32,22 @@ class NewStatus extends Component
             'name' => 'required|min:3|max:255',
         ]);
 
-        Status::create([
-            'name' => $this->name,
-        ]);
+        if ($this->selected) {
+            $status = Status::find($this->selected);
+            $status->name = $this->name;
+            $status->save();
+        } else {
+
+            Status::create([
+                'name' => $this->name,
+            ]);
+        }
 
         $this->newStatusModal = false;
 
         $this->name = "";
 
-        $this->emit('newStatusCreated');
+        $this->emit('statusUpdated');
     }
 
 

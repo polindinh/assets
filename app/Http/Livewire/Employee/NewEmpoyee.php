@@ -9,6 +9,7 @@ class NewEmpoyee extends Component
 {
     public $showModal=false;
 
+    public $employee_id;
     public $first_name;
     public $last_name;
     public $email;
@@ -24,12 +25,14 @@ class NewEmpoyee extends Component
     public function createNewEmployee()
     {
         $this->validate([
+            'employee_id' => 'required|unique:employees',
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
         ]);
 
         $employee = new Employee();
+        $employee->employee_id = $this->employee_id;
         $employee->first_name = $this->first_name;
         $employee->last_name = $this->last_name;
         $employee->email = $this->email;

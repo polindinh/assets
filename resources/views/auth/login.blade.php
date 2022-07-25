@@ -2,7 +2,6 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
-			<h2>ITA TOOL</h2>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -40,11 +39,10 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4" style="background:rgb(43, 128, 0)">
+                <x-jet-button class="ml-4">
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
-

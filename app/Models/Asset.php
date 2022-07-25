@@ -27,6 +27,11 @@ class Asset extends Model
         return $this->belongsTo(User::class,'created_by');
     }
 
+    //status
+    public function status(){
+        return $this->belongsTo(Status::class);
+    }
+
     //updated by
     public function updator(){
         return $this->belongsTo(User::class,'updated_by');

@@ -4,6 +4,9 @@
             <div class="block">
                 <x-jet-label value="{{ __('Asset ID') }}" />
                 <h1>{{$asset->asset_id}}</h1>
+
+                <x-jet-label value="{{ __('Status') }}" />
+                <h1>{{$asset->status->name}}</h1>
             </div>
             <div class="block">
                 <x-jet-label value="{{ __('Hardware Information') }}" />
@@ -17,13 +20,13 @@
             <div class="block">
                 <x-jet-label value="{{ __('Specification') }}" />
 
-                <h1 class="p-2"><span class="font-bold">CPU:</span> {{$asset->pc_specification->cpu}}</h1>
-                <h1 class="p-2"><span class="font-bold">GPU:</span> {{$asset->pc_specification->gpu}}</h1>
-                <h1 class="p-2"><span class="font-bold">Memory:</span> {{$asset->pc_specification->memory}}</h1>
-                <h1 class="p-2"><span class="font-bold">Storage:</span> {{$asset->pc_specification->storage}}</h1>
-                <h1 class="p-2"><span class="font-bold">Is ssd:</span> {{$asset->pc_specification->is_ssd===0?"False":"True"}}</h1>
-                <h1 class="p-2"><span class="font-bold">Wifi enabled:</span> {{$asset->pc_specification->wifi_enabled===0?"False":"True"}}</h1>
-                <h1 class="p-2"><span class="font-bold">Wwan enabled:</span> {{$asset->pc_specification->wwan_enabled===0?"False":"True"}}</h1>
+                <h1 class="p-2"><span class="font-bold">cpu:</span> {{$asset->pc_specification->cpu}}</h1>
+                <h1 class="p-2"><span class="font-bold">gpu:</span> {{$asset->pc_specification->gpu}}</h1>
+                <h1 class="p-2"><span class="font-bold">memory:</span> {{$asset->pc_specification->memory}}</h1>
+                <h1 class="p-2"><span class="font-bold">storage:</span> {{$asset->pc_specification->storage}}</h1>
+                <h1 class="p-2"><span class="font-bold">is ssd:</span> {{$asset->pc_specification->is_ssd===0?"False":"True"}}</h1>
+                <h1 class="p-2"><span class="font-bold">wifi enabled:</span> {{$asset->pc_specification->wifi_enabled===0?"False":"True"}}</h1>
+                <h1 class="p-2"><span class="font-bold">wwan enabled:</span> {{$asset->pc_specification->wwan_enabled===0?"False":"True"}}</h1>
 
 
             </div>
@@ -45,6 +48,7 @@
                 <x-jet-label value="{{ __('Purhase Date') }}" />
                 <h1 class="p-2"><span class="font-bold"> {{$asset->purchase_date}}</span></h1>
             </div>
+
 
         </div>
    </div>

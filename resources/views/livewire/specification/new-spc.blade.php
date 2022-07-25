@@ -3,18 +3,18 @@
 
         <x-jet-dialog-modal wire:model="newSpecModal">
             <x-slot name="title">
-                {{ __('Create Specification') }}
+                @if(isset($sid)) Update @else Create @endif {{ __(' Specification') }}
             </x-slot>
 
             <x-slot name="content">
                 <form submit.prevent="createNewHardware">
                     <div class="block">
-                        <x-jet-label value="{{ __('CPU') }}" />
+                        <x-jet-label value="{{ __('Cpu') }}" />
                         <x-jet-input class="block w-full" type="text" wire:model="cpu" />
                         @error('cpu')
-                            <div class="text-sm text-red-500" role="alert">
-                                {{ $message }}
-                            </div>
+                        <div class="text-sm text-red-500" role="alert">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                     <div class="block">
@@ -22,9 +22,9 @@
                         <x-jet-input class="block w-full" type="number" wire:model="memory" />
 
                         @error('memory')
-                            <div class="text-sm text-red-500" role="alert">
-                                {{ $message }}
-                            </div>
+                        <div class="text-sm text-red-500" role="alert">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                     <div class="block">
@@ -32,9 +32,9 @@
                         <x-jet-input class="block w-full" type="number" wire:model="storage" />
 
                         @error('storage')
-                            <div class="text-sm text-red-500" role="alert">
-                                {{ $message }}
-                            </div>
+                        <div class="text-sm text-red-500" role="alert">
+                            {{ $message }}
+                        </div>
                         @enderror
 
                     </div>
@@ -43,9 +43,9 @@
                         <x-jet-input class="block w-full" type="text" wire:model="gpu" />
 
                         @error('gpu')
-                            <div class="text-sm text-red-500" role="alert">
-                                {{ $message }}
-                            </div>
+                        <div class="text-sm text-red-500" role="alert">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                     <div class="flex justify-space-around">
@@ -55,9 +55,9 @@
                                 {{ __('Yes') }}
                             </x-jet-checkbox>
                             @error('is_ssd')
-                                <div class="text-sm text-red-500" role="alert">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-sm text-red-500" role="alert">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
                         <div class="block mr-4">
@@ -66,9 +66,9 @@
                                 {{ __('Yes') }}
                             </x-jet-checkbox>
                             @error('wifi_enabled')
-                                <div class="text-sm text-red-500" role="alert">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-sm text-red-500" role="alert">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
                         <div class="block mr-4">
@@ -77,17 +77,17 @@
                                 {{ __('Yes') }}
                             </x-jet-checkbox>
                             @error('wwan_enabled')
-                                <div class="text-sm text-red-500" role="alert">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-sm text-red-500" role="alert">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
                     </div>
                 </form>
             </x-slot>
             <x-slot name="footer">
-                <x-jet-secondary-button wire:click="createNewSpec()" style="background:rgb(43, 128, 0); color:white;">
-                    {{ __('Create') }}
+                <x-jet-secondary-button wire:click="createNewSpec()">
+                    @if(isset($sid)) Update @else Create @endif
                 </x-jet-secondary-button>
 
             </x-slot>

@@ -4,7 +4,10 @@
         <div class="flex justify-between mb-4">
 
 
-            <a href="{{route('asstes.new')}}" class="mr-4 p-2 rounded-md bg-green-500 text-white" style="background:rgb(43, 128, 0)">
+            <a target="_blank" href="{{route('asstes.download')}}" class="mr-4 p-2 rounded-md bg-blue-500 text-white">
+                {{ __('Export') }}
+            </a>
+            <a href="{{route('asstes.new')}}" class="mr-4 p-2 rounded-md bg-green-500 text-white">
                 {{ __('Create New') }}
             </a>
         </div>

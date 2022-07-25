@@ -7,8 +7,10 @@
             @endforeach
         </Select>
     </div>
+
     <span wire:click="toggleModal()" class="cursor-pointer ml-6 bg-teal-400 text-white p-2 rounded-md">
         {{ __('new') }}
     </span>
+    
     @livewire('hardware.new-hardware')
 </div>

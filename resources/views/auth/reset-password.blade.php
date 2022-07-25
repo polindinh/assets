@@ -2,7 +2,6 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
-            <h2>ITA TOOL</h2>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -28,7 +27,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-jet-button style="background:rgb(43, 128, 0)">
+                <x-jet-button>
                     {{ __('Reset Password') }}
                 </x-jet-button>
             </div>

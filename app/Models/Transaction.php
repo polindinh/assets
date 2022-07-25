@@ -9,6 +9,11 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    public function peripherals()
+    {
+        return $this->hasOne(Peripheral::class, 'last_transaction_id', 'id');
+    }
+
     public function asset(){
         return $this->belongsTo(Asset::class);
     }
